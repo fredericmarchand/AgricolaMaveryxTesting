@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="lib" path="X:/Code/Maveryx/bin/proxy.jar"/>
+	<classpathentry kind="lib" path="X:/Code/Maveryx/lib/junit.jar"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="X:/Code/Maveryx/lib/junit4runner.jar"/>
+	<classpathentry kind="lib" path="X:/Code/Maveryx/lib/jaxen.jar"/>
+	<classpathentry kind="lib" path="X:/Code/Maveryx/bin/testReport.jar"/>
+	<classpathentry kind="lib" path="X:/Code/Maveryx/bin/finderXMLObject.jar"/>
+	<classpathentry kind="lib" path="X:/Code/Maveryx/lib/jcommon-1.0.16.jar"/>
+	<classpathentry kind="lib" path="X:/Code/Maveryx/bin/bootstrap.jar"/>
+	<classpathentry kind="lib" path="X:/Code/Maveryx/lib/freemarker.jar"/>
+	<classpathentry kind="lib" path="X:/Code/Maveryx/lib/jdom.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="X:/Code/Maveryx/lib/jxl.jar"/>
+	<classpathentry kind="lib" path="X:/Code/Maveryx/bin/factory.jar"/>
+	<classpathentry kind="lib" path="X:/Code/Maveryx/bin/utils.jar"/>
+	<classpathentry kind="lib" path="X:/Code/Maveryx/lib/cajo.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
