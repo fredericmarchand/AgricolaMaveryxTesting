@@ -42,7 +42,6 @@ public class AgricolaController extends JFrame implements MouseListener,
 			clay_converter, reed_converter;
 
 	public AgricolaController(int numplayers) {
-		num_players = numplayers;
 		fireplace_num = 2;
 		hearth_num = 2;
 		well = true;

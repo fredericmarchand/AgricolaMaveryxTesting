@@ -352,6 +352,7 @@ public class FarmView extends JFrame{
 		add(label_clay);
 		 
 		text_clay=new JTextField("0");
+		text_clay.setToolTipText("textclay");
 		text_clay.setEditable(false);
 		text_clay.setLocation(299,446);
 		text_clay.setSize(24,20);
