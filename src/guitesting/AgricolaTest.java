@@ -7,8 +7,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.maveryx.bootstrap.Bootstrap;
-import org.maveryx.core.guiApi.GuiButton;
-import org.maveryx.core.guiApi.GuiFrame;
 import org.maveryx.core.guiApi.*;
 
 @RunWith(org.maveryx.test.junit.MaveryxTestRunner.class)
@@ -68,9 +66,9 @@ public class AgricolaTest {
 	 *  Test 1
 	 * @throws Exception
 	 */
-	@Test
+	//@Test
 	/* Random Test to try out maveryx*/
-	public void test001() throws Exception {
+	/*public void test001() throws Exception {
 		startApp(pathName); //launch the application under test
 		GuiFrame f = new GuiFrame("Agricola"); //the application frame
 		GuiButton dmb = new GuiButton("Take clay (+1 per round)", f);
@@ -79,6 +77,18 @@ public class AgricolaTest {
 		dmb.click();
 		assertEquals("1", fld.getText());
 		assertEquals(false, dmb.isShowing());
+		
+	}*/
+	
+	@Test
+	/* Random Test to try out maveryx*/
+	public void test002() throws Exception {
+		startApp(pathName); //launch the application under test
+		GuiFrame f = new GuiFrame("Agricola"); //the application frame
+		GuiButton dmb = new GuiButton("GetSpaceTypes", f);
+		dmb.click();
+		
+		GuiDialog d = new GuiDialog(); //the message box
 	}
 
 }

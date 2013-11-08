@@ -26,8 +26,8 @@ public class AgricolaController extends JFrame implements MouseListener,
 			b3_resource2, b4_wood, b4_2clay, b4_2wood, b4_food, b4_resource,
 			b4_3resource, b5_4wood, b5_3clay, b5_roomfood, b5_reed, b5_animals,
 			b5_resource, b_finish;
-	private JRadioButtonMenuItem mplayer1, mplayer2, mplayer3, mplayer4,
-			mplayer5;
+	private JRadioButtonMenuItem mplayer1, mplayer2, mplayer3, mplayer4, mplayer5;
+	
 	private Space seat_text;
 	private int game, num_players;
 	private int turn, wood, clay, reed, food, sheep, stone, stone2, boar,
@@ -377,6 +377,7 @@ public class AgricolaController extends JFrame implements MouseListener,
 		b_finish.addActionListener(this);
 		b_finish.setVisible(false);
 
+		
 		view.setVisible(true);
 		view.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		// farm buttons
@@ -826,6 +827,7 @@ public class AgricolaController extends JFrame implements MouseListener,
 		// fences were the most complicated of actions because it requires
 		// multiple successive clicks and the game knowing if a fence encloses
 		// an area or not
+		
 		if (e.getSource() instanceof JButton) {
 			if (wFences || wFences2) {
 				if (e.getActionCommand().equals("Finish Action")
@@ -1226,6 +1228,11 @@ public class AgricolaController extends JFrame implements MouseListener,
 				}
 			}
 
+			if (e.getActionCommand().equals("GetSpaceTypes")) {
+				displaySpaceTypes();
+				return;
+			}
+			
 			// first button press selection, since this requires the player to
 			// click on a farm place the action is not done here but later on
 			// when the w variables read as true
@@ -4341,6 +4348,10 @@ public class AgricolaController extends JFrame implements MouseListener,
 				computerTurn();
 
 		}
+		
+		//Update Button tooltips
+		displaySpaceTypes();
+		
 	}
 
 	// **************************
@@ -6443,4 +6454,25 @@ public class AgricolaController extends JFrame implements MouseListener,
 		return temp;
 	}
 
+	public void displaySpaceTypes() {
+		StringBuilder everything = new StringBuilder();
+		/*Object opts[] = { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0-",
+				          "10", "01", "02", "00", "00", "00", "00", "00", "00", "00", "0-",
+				          "20", "01", "02", "00", "00", "00", "00", "00", "00", "00", "0-",
+				          "30", "01", "02", "00", "00", "00", "00", "00", "00", "00", "0-",
+				          "40", "01", "02", "00", "00", "00", "00", "00", "00", "00", "0-",
+				          "50", "01", "02", "00", "00", "00", "00", "00", "00", "00", "0-",
+				          "60", "01", "02", "00", "00", "00", "00", "00", "00", "00", "0-" };*/
+
+		for (int r = 0; r < 7; r++) {
+			for (int col = 0; col < 11; col++) {
+				everything.append(farm[cur_player][r][col].getType());
+			}
+		}
+		view.getSpaceTypes.setText(everything.toString());
+		/*JOptionPane.showOptionDialog(null,
+				everything.toString(), "spaceTypes", 
+				JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, opts, opts[0]);*/
+	}
+	
 }

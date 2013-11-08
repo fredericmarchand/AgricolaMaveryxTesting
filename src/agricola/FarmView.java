@@ -7,6 +7,7 @@ package agricola;
 //Winter 2013
 
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.*; 
 
@@ -34,6 +35,9 @@ public class FarmView extends JFrame{
 					b_stone2, b_cattle, b_fieldsow, b_growth2, b_renov2, b_finishaction;
 	private Label l_fireplace, l_fireplace2, l_hearth, l_hearth2, l_coven, l_soven, l_joinery, l_pottery, l_basket, l_well,
 					l2_fireplace, l2_fireplace2, l2_hearth, l2_hearth2, l2_coven, l2_soven, l2_joinery, l2_pottery, l2_basket, l2_well;
+	
+	public JTextField getSpaceTypes;
+	
 	public FarmView(){
 		super("Agricola");
 		setLayout(null);	
@@ -765,7 +769,11 @@ public class FarmView extends JFrame{
 		l_harvest6.setSize(420,12);
 		add(l_harvest6);
 		
-		
+		getSpaceTypes=new JTextField("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeweeeeeeeeeeeeeeeeeeeeeweeeeeeeeeeeeeeeeeeee");
+		getSpaceTypes.setLocation(650,565);
+		getSpaceTypes.setSize(420,15);
+		getSpaceTypes.setToolTipText("GetSpaceTypes");
+		add(getSpaceTypes);
 		
 		/*button_admin=new JButton("Administrator");
 		button_admin.setLocation(650,490);
