@@ -80,15 +80,18 @@ public class AgricolaTest {
 		
 	}*/
 	
-	@Test
+	//@Test
 	/* Random Test to try out maveryx*/
-	public void test002() throws Exception {
+	/*public void test002() throws Exception {
 		startApp(pathName); //launch the application under test
 		GuiFrame f = new GuiFrame("Agricola"); //the application frame
-		GuiButton dmb = new GuiButton("GetSpaceTypes", f);
-		dmb.click();
+		//GuiButton dmb = new GuiButton("GetSpaceTypes", f);
+		//dmb.click();
 		
-		GuiDialog d = new GuiDialog(); //the message box
-	}
+		GuiText txt = new GuiText("GetSpaceTypes");
+		System.out.println(txt.getText());
+	}*/
+	
+	
 
 }
