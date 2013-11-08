@@ -43,7 +43,7 @@ public class FarmView extends JFrame {
 			b_3wood, b_clay, b_reed, b_food, b_improve, b_sow, b_fences,
 			b_sheep, b_renov, b_growth, b_stone, b_boar, b_vege, b_stone2,
 			b_cattle, b_fieldsow, b_growth2, b_renov2, b_finishaction;
-	private Label l_fireplace, l_fireplace2, l_hearth, l_hearth2, l_coven,
+	private JLabel l_fireplace, l_fireplace2, l_hearth, l_hearth2, l_coven,
 			l_soven, l_joinery, l_pottery, l_basket, l_well, l2_fireplace,
 			l2_fireplace2, l2_hearth, l2_hearth2, l2_coven, l2_soven,
 			l2_joinery, l2_pottery, l2_basket, l2_well;
@@ -120,111 +120,131 @@ public class FarmView extends JFrame {
 		l_totalPI.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 14));
 		add(l_totalPI);
 
-		l_fireplace = new Label("Fireplace");
+		l_fireplace = new JLabel("Fireplace");
+		l_fireplace.setToolTipText("gameFireplace");
 		l_fireplace.setSize(55, 18);
 		l_fireplace.setLocation(10, 525);
 		add(l_fireplace);
 
-		l_fireplace2 = new Label("Fireplace2");
+		l_fireplace2 = new JLabel("Fireplace2");
+		l_fireplace2.setToolTipText("gameFireplace2");
 		l_fireplace2.setSize(60, 18);
 		l_fireplace2.setLocation(91, 525);
 		add(l_fireplace2);
 
-		l_hearth = new Label("Cooking Hearth");
+		l_hearth = new JLabel("Cooking Hearth");
+		l_hearth.setToolTipText("gameCookingHearth");
 		l_hearth.setSize(90, 18);
 		l_hearth.setLocation(185, 525);
 		add(l_hearth);
 
-		l_hearth2 = new Label("Cooking Hearth2");
+		l_hearth2 = new JLabel("Cooking Hearth2");
+		l_hearth2.setToolTipText("gameCookingHearth2");
 		l_hearth2.setSize(95, 18);
 		l_hearth2.setLocation(10, 545);
 		add(l_hearth2);
 
-		l_coven = new Label("Clay Oven");
+		l_coven = new JLabel("Clay Oven");
+		l_coven.setToolTipText("gameClayOven");
 		l_coven.setSize(70, 18);
 		l_coven.setLocation(125, 545);
 		add(l_coven);
 
-		l_soven = new Label("Stone Oven");
+		l_soven = new JLabel("Stone Oven");
+		l_soven.setToolTipText("gameStoneOven");
 		l_soven.setSize(85, 18);
 		l_soven.setLocation(202, 548);
 		add(l_soven);
 
-		l_joinery = new Label("Joinery");
+		l_joinery = new JLabel("Joinery");
+		l_joinery.setToolTipText("gameJoinery");
 		l_joinery.setSize(54, 18);
 		l_joinery.setLocation(10, 567);
 		add(l_joinery);
 
-		l_pottery = new Label("Pottery");
+		l_pottery = new JLabel("Pottery");
+		l_pottery.setToolTipText("gamePottery");
 		l_pottery.setSize(50, 18);
 		l_pottery.setLocation(75, 567);
 		add(l_pottery);
 
-		l_basket = new Label("Basketmaker");
+		l_basket = new JLabel("Basketmaker");
+		l_basket.setToolTipText("gameBasket");
 		l_basket.setSize(77, 18);
 		l_basket.setLocation(132, 567);
 		add(l_basket);
 
-		l_well = new Label("Well");
+		l_well = new JLabel("Well");
+		l_well.setToolTipText("well");
 		l_well.setSize(40, 18);
 		l_well.setLocation(228, 567);
 		add(l_well);
 
-		l2_fireplace = new Label("Fireplace");
+		l2_fireplace = new JLabel("Fireplace");
+		l2_fireplace.setToolTipText("playerFireplace");
 		l2_fireplace.setSize(55, 18);
 		l2_fireplace.setLocation(330, 522);
 		l2_fireplace.setVisible(false);
 		add(l2_fireplace);
 
-		l2_fireplace2 = new Label("Fireplace2");
+		l2_fireplace2 = new JLabel("Fireplace2");
+		l2_fireplace2.setToolTipText("playerFireplace2");
 		l2_fireplace2.setSize(60, 18);
 		l2_fireplace2.setLocation(411, 525);
 		l2_fireplace2.setVisible(false);
 		add(l2_fireplace2);
 
-		l2_hearth = new Label("Cooking Hearth");
+		l2_hearth = new JLabel("Cooking Hearth");
+		l2_hearth.setToolTipText("playerCookingHearth");
 		l2_hearth.setSize(90, 18);
 		l2_hearth.setLocation(505, 525);
 		l2_hearth.setVisible(false);
 		add(l2_hearth);
 
-		l2_hearth2 = new Label("Cooking Hearth2");
+		l2_hearth2 = new JLabel("Cooking Hearth2");
+		l2_hearth2.setToolTipText("playerCookingHearth2");
 		l2_hearth2.setSize(95, 18);
 		l2_hearth2.setLocation(330, 545);
 		l2_hearth2.setVisible(false);
 		add(l2_hearth2);
 
-		l2_coven = new Label("Clay Oven");
+		l2_coven = new JLabel("Clay Oven");
+		l2_coven.setToolTipText("playerClayOven");
 		l2_coven.setSize(70, 18);
 		l2_coven.setLocation(445, 545);
 		l2_coven.setVisible(false);
 		add(l2_coven);
 
-		l2_soven = new Label("Stone Oven");
+		l2_soven = new JLabel("Stone Oven");
+		l2_soven.setToolTipText("playerStoneOven");
 		l2_soven.setSize(85, 18);
 		l2_soven.setLocation(522, 545);
 		l2_soven.setVisible(false);
 		add(l2_soven);
 
-		l2_joinery = new Label("Joinery");
+		l2_joinery = new JLabel("Joinery");
+		l2_joinery.setToolTipText("playerJoinery");
 		l2_joinery.setSize(54, 18);
 		l2_joinery.setLocation(340, 567);
 		l2_joinery.setVisible(false);
 		add(l2_joinery);
 
-		l2_pottery = new Label("Pottery");
+		l2_pottery = new JLabel("Pottery");
+		l2_pottery.setToolTipText("playerPottery");
 		l2_pottery.setSize(50, 18);
 		l2_pottery.setLocation(395, 567);
 		l2_pottery.setVisible(false);
 		add(l2_pottery);
 
-		l2_basket = new Label("Basketmaker");
+		l2_basket = new JLabel("Basketmaker");
+		l2_basket.setToolTipText("playerBasket");
 		l2_basket.setSize(77, 18);
 		l2_basket.setLocation(452, 567);
 		l2_basket.setVisible(false);
 		add(l2_basket);
 
-		l2_well = new Label("Well");
+		l2_well = new JLabel("Well");
+		l2_well.setToolTipText("playerWell");
 		l2_well.setSize(40, 18);
 		l2_well.setLocation(548, 567);
 		l2_well.setVisible(false);
@@ -1109,16 +1129,16 @@ public class FarmView extends JFrame {
 		return alltext;
 	}
 
-	public Label[] getGameImprovements() {
-		Label[] allImprovements = { l_fireplace, l_fireplace2, l_hearth,
+	public JLabel[] getGameImprovements() {
+		JLabel[] allImprovements = { l_fireplace, l_fireplace2, l_hearth,
 				l_hearth2, l_coven, l_soven, l_joinery, l_pottery, l_basket,
 				l_well };
 		return allImprovements;
 
 	}
 
-	public Label[] getPlayerImprovements() {
-		Label[] allImprovements = { l2_fireplace, l2_fireplace2, l2_hearth,
+	public JLabel[] getPlayerImprovements() {
+		JLabel[] allImprovements = { l2_fireplace, l2_fireplace2, l2_hearth,
 				l2_hearth2, l2_coven, l2_soven, l2_joinery, l2_pottery,
 				l2_basket, l2_well };
 		return allImprovements;

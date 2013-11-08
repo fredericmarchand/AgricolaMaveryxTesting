@@ -26,8 +26,9 @@ public class AgricolaController extends JFrame implements MouseListener,
 			b3_resource2, b4_wood, b4_2clay, b4_2wood, b4_food, b4_resource,
 			b4_3resource, b5_4wood, b5_3clay, b5_roomfood, b5_reed, b5_animals,
 			b5_resource, b_finish;
-	private JRadioButtonMenuItem mplayer1, mplayer2, mplayer3, mplayer4, mplayer5;
-	
+	private JRadioButtonMenuItem mplayer1, mplayer2, mplayer3, mplayer4,
+			mplayer5;
+
 	private Space seat_text;
 	private int game, num_players;
 	private int turn, wood, clay, reed, food, sheep, stone, stone2, boar,
@@ -377,7 +378,6 @@ public class AgricolaController extends JFrame implements MouseListener,
 		b_finish.addActionListener(this);
 		b_finish.setVisible(false);
 
-		
 		view.setVisible(true);
 		view.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		// farm buttons
@@ -391,420 +391,284 @@ public class AgricolaController extends JFrame implements MouseListener,
 		}
 	}
 
-	/*public AgricolaController() {
-		num_players = 0;
-		fireplace_num = 2;
-		hearth_num = 2;
-		well = true;
-		clay_oven = true;
-		stone_oven = true;
-		wood_converter = true;
-		clay_converter = true;
-		reed_converter = true;
-		extraFences = false;
-		wFences2 = false;
-
-		players = new Player[5];
-		farm = new Space[5][7][11];
-
-		view = new FarmView();
-
-		// initializing variables and asking the user how many players are
-		// playing and of what type
-		Object[] possibilities = { "Human", "Computer - Normal",
-				"Computer - Hard" };
-		String s = (String) JOptionPane.showInputDialog(null,
-				"Please Select Player 1", "Setup Game",
-				JOptionPane.PLAIN_MESSAGE, null, possibilities, "Human");
-		num_players++;
-		players[0] = new Player();
-		if (s.equals("Computer - Normal"))
-			players[0].setComputer(false);
-		else if (s.equals("Computer - Hard"))
-			players[0].setComputer(true);
-
-		Object[] possibilities2 = { "Human", "Computer - Normal",
-				"Computer - Hard", "No More Players" };
-
-		s = (String) JOptionPane.showInputDialog(null,
-				"Please Select Player 2", "Setup Game",
-				JOptionPane.PLAIN_MESSAGE, null, possibilities2, "Human");
-		if (!s.equals("No More Players")) {
-			players[1] = new Player();
-			num_players++;
-			if (s.equals("Computer - Normal"))
-				players[1].setComputer(false);
-			else if (s.equals("Computer - Hard"))
-				players[1].setComputer(true);
-
-			s = (String) JOptionPane.showInputDialog(null,
-					"Please Select Player 3", "Setup Game",
-					JOptionPane.PLAIN_MESSAGE, null, possibilities2, "Human");
-			if (!s.equals("No More Players")) {
-				players[2] = new Player();
-				num_players++;
-				if (s.equals("Computer - Normal"))
-					players[2].setComputer(false);
-				else if (s.equals("Computer - Hard"))
-					players[2].setComputer(true);
-
-				s = (String) JOptionPane.showInputDialog(null,
-						"Please Select Player 4", "Setup Game",
-						JOptionPane.PLAIN_MESSAGE, null, possibilities2,
-						"Human");
-				if (!s.equals("No More Players")) {
-					players[3] = new Player();
-					num_players++;
-					if (s.equals("Computer - Normal"))
-						players[3].setComputer(false);
-					else if (s.equals("Computer - Hard"))
-						players[3].setComputer(true);
-
-					s = (String) JOptionPane.showInputDialog(null,
-							"Please Select Player 5", "Setup Game",
-							JOptionPane.PLAIN_MESSAGE, null, possibilities2,
-							"Human");
-					if (!s.equals("No More Players")) {
-						players[4] = new Player();
-						num_players++;
-						if (s.equals("Computer - Normal"))
-							players[4].setComputer(false);
-						else if (s.equals("Computer - Hard"))
-							players[4].setComputer(true);
-
-					}
-				}
-			}
-		}
-
-		view.setPlayerMenu(num_players);
-
-		for (int r = 0; r < 7; r++) {
-			for (int col = 0; col < 11; col++) {
-				farm[0][r][col] = new Space();
-				if (r % 2 == 1 && col % 2 == 1) {
-					farm[0][r][col].setSquare();
-					if ((col == 1 && r == 3) || (col == 1 && r == 5))
-						farm[0][r][col].setType('w');
-				}
-				if (r % 2 == 0 && col % 2 == 0)
-					farm[0][r][col].setValid();
-
-			}
-
-		}
-
-		mplayer1 = view.getPlayer1();
-		mplayer1.addActionListener(this);
-
-		// initializing farms
-
-		if (num_players > 1) {
-			mplayer2 = view.getPlayer2();
-			mplayer2.addActionListener(this);
-
-			for (int r = 0; r < 7; r++) {
-				for (int col = 0; col < 11; col++) {
-					farm[1][r][col] = new Space();
-					if (r % 2 == 1 && col % 2 == 1) {
-						farm[1][r][col].setSquare();
-						if ((col == 1 && r == 3) || (col == 1 && r == 5))
-							farm[1][r][col].setType('w');
-					}
-					if (r % 2 == 0 && col % 2 == 0)
-						farm[1][r][col].setValid();
-
-				}
-
-			}
-
-		}
-		if (num_players > 2) {
-			mplayer3 = view.getPlayer3();
-			mplayer3.addActionListener(this);
-
-			for (int r = 0; r < 7; r++) {
-				for (int col = 0; col < 11; col++) {
-					farm[2][r][col] = new Space();
-					if (r % 2 == 1 && col % 2 == 1) {
-						farm[2][r][col].setSquare();
-						if ((col == 1 && r == 3) || (col == 1 && r == 5))
-							farm[2][r][col].setType('w');
-					}
-					if (r % 2 == 0 && col % 2 == 0)
-						farm[2][r][col].setValid();
-
-				}
-
-			}
-
-		}
-		if (num_players > 3) {
-			mplayer4 = view.getPlayer4();
-			mplayer4.addActionListener(this);
-
-			for (int r = 0; r < 7; r++) {
-				for (int col = 0; col < 11; col++) {
-					farm[3][r][col] = new Space();
-					if (r % 2 == 1 && col % 2 == 1) {
-						farm[3][r][col].setSquare();
-						if ((col == 1 && r == 3) || (col == 1 && r == 5))
-							farm[3][r][col].setType('w');
-					}
-					if (r % 2 == 0 && col % 2 == 0)
-						farm[3][r][col].setValid();
-
-				}
-
-			}
-
-		}
-		if (num_players > 4) {
-			mplayer5 = view.getPlayer5();
-			mplayer5.addActionListener(this);
-			for (int r = 0; r < 7; r++) {
-				for (int col = 0; col < 11; col++) {
-					farm[4][r][col] = new Space();
-					if (r % 2 == 1 && col % 2 == 1) {
-						farm[4][r][col].setSquare();
-						if ((col == 1 && r == 3) || (col == 1 && r == 5))
-							farm[4][r][col].setType('w');
-					}
-					if (r % 2 == 0 && col % 2 == 0)
-						farm[4][r][col].setValid();
-
-				}
-
-			}
-
-		}
-
-		cur_player = 0;
-		start_player = 0;
-		view_player = 0;
-		b = view.getButtons();
-		game = 1;
-		if (num_players == 1) {
-			wood = 2;
-			view.getGameTexts()[1].setText(Integer.toString(wood));
-
-		} else
-			wood = 3;
-		clay = 1;
-		reed = 1;
-		food = 1;
-		sheep = 1;
-		stone = 1;
-		stone2 = 1;
-		boar = 1;
-		cattle = 1;
-		turn = 1;
-		// start variables for the game values, the wood space either gives 2 or
-		// 3 depending on if it is a solo game
-
-		// extra button initializations for 3-5 player games
-		if (num_players == 3) {
-			clay_3p = 1;
-			wood2_3p = 1;
-
-			view.get3Actions()[0].setVisible(true);
-			view.get3Actions()[1].setVisible(true);
-			view.get3Actions()[2].setVisible(true);
-			view.get3Actions()[3].setVisible(true);
-
-			b3_clay = view.get3Actions()[0];
-			b3_clay.addActionListener(this);
-
-			b3_2wood = view.get3Actions()[1];
-			b3_2wood.addActionListener(this);
-
-			b3_resource = view.get3Actions()[2];
-			b3_resource.addActionListener(this);
-
-			b3_resource2 = view.get3Actions()[3];
-			b3_resource2.addActionListener(this);
-
-			view.get3Texts()[0].setVisible(true);
-			view.get3Texts()[1].setVisible(true);
-
-		}
-
-		else if (num_players == 4) {
-			wood_4p = 1;
-			wood2_4p = 2;
-			clay2_4p = 2;
-			food_4p = 1;
-
-			view.get4Actions()[0].setVisible(true);
-			view.get4Actions()[1].setVisible(true);
-			view.get4Actions()[2].setVisible(true);
-			view.get4Actions()[3].setVisible(true);
-			view.get4Actions()[4].setVisible(true);
-			view.get4Actions()[5].setVisible(true);
-
-			b4_wood = view.get4Actions()[0];
-			b4_wood.addActionListener(this);
-
-			b4_2clay = view.get4Actions()[1];
-			b4_2clay.addActionListener(this);
-
-			b4_2wood = view.get4Actions()[2];
-			b4_2wood.addActionListener(this);
-
-			b4_food = view.get4Actions()[3];
-			b4_food.addActionListener(this);
-
-			b4_resource = view.get4Actions()[4];
-			b4_resource.addActionListener(this);
-
-			b4_3resource = view.get4Actions()[5];
-			b4_3resource.addActionListener(this);
-
-			view.get4Texts()[0].setVisible(true);
-			view.get4Texts()[1].setVisible(true);
-			view.get4Texts()[2].setVisible(true);
-			view.get4Texts()[3].setVisible(true);
-		} else if (num_players == 5) {
-			wood4_5p = 4;
-			clay3_5p = 3;
-			food_5p = 1;
-			reed_5p = 1;
-
-			view.get5Actions()[0].setVisible(true);
-			view.get5Actions()[1].setVisible(true);
-			view.get5Actions()[2].setVisible(true);
-			view.get5Actions()[3].setVisible(true);
-			view.get5Actions()[4].setVisible(true);
-			view.get5Actions()[5].setVisible(true);
-
-			b5_4wood = view.get5Actions()[0];
-			b5_4wood.addActionListener(this);
-
-			b5_3clay = view.get5Actions()[1];
-			b5_3clay.addActionListener(this);
-
-			b5_roomfood = view.get5Actions()[2];
-			b5_roomfood.addActionListener(this);
-
-			b5_reed = view.get5Actions()[3];
-			b5_reed.addActionListener(this);
-
-			b5_animals = view.get5Actions()[4];
-			b5_animals.addActionListener(this);
-
-			b5_resource = view.get5Actions()[5];
-			b5_resource.addActionListener(this);
-
-			view.get5Texts()[0].setVisible(true);
-			view.get5Texts()[1].setVisible(true);
-			view.get5Texts()[2].setVisible(true);
-			view.get5Texts()[3].setVisible(true);
-
-		}
-
-		// all button initilizations
-		b_room = view.getActions()[0];
-		b_room.addActionListener(this);
-
-		b_start = view.getActions()[1];
-		b_start.addActionListener(this);
-
-		b_grain = view.getActions()[2];
-		b_grain.addActionListener(this);
-
-		b_field = view.getActions()[3];
-		b_field.addActionListener(this);
-
-		b_stable = view.getActions()[4];
-		b_stable.addActionListener(this);
-
-		b_day = view.getActions()[5];
-		b_day.addActionListener(this);
-
-		b_wood = view.getActions()[6];
-		b_wood.addActionListener(this);
-
-		b_clay = view.getActions()[7];
-		b_clay.addActionListener(this);
-
-		b_reed = view.getActions()[8];
-		b_reed.addActionListener(this);
-
-		b_food = view.getActions()[9];
-		b_food.addActionListener(this);
-
-		b_sheep = view.getActions()[10];
-		b_sheep.addActionListener(this);
-
-		b_sow = view.getActions()[11];
-		b_sow.setVisible(false);
-		b_sow.addActionListener(this);
-
-		b_fences = view.getActions()[12];
-		b_fences.setVisible(false);
-		b_fences.addActionListener(this);
-
-		b_improve = view.getActions()[13];
-		b_improve.setVisible(false);
-		b_improve.addActionListener(this);
-
-		b_stone = view.getActions()[14];
-		b_stone.setVisible(false);
-		b_stone.addActionListener(this);
-
-		b_growth = view.getActions()[15];
-		b_growth.setVisible(false);
-		b_growth.addActionListener(this);
-
-		b_renov = view.getActions()[16];
-		b_renov.setVisible(false);
-		b_renov.addActionListener(this);
-
-		b_boar = view.getActions()[17];
-		b_boar.setVisible(false);
-		b_boar.addActionListener(this);
-
-		b_vege = view.getActions()[18];
-		b_vege.setVisible(false);
-		b_vege.addActionListener(this);
-
-		b_cattle = view.getActions()[19];
-		b_cattle.setVisible(false);
-		b_cattle.addActionListener(this);
-
-		b_stone2 = view.getActions()[20];
-		b_stone2.setVisible(false);
-		b_stone2.addActionListener(this);
-
-		b_growth2 = view.getActions()[21];
-		b_growth2.setVisible(false);
-		b_growth2.addActionListener(this);
-
-		b_fieldsow = view.getActions()[22];
-		b_fieldsow.setVisible(false);
-		b_fieldsow.addActionListener(this);
-
-		b_renov2 = view.getActions()[23];
-		b_renov2.setVisible(false);
-		b_renov2.addActionListener(this);
-
-		b_finish = view.getActions()[24];
-		b_finish.addActionListener(this);
-		b_finish.setVisible(false);
-
-		view.setVisible(true);
-		view.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		// farm buttons
-		for (int r = 0; r < 7; r++) {
-			for (int col = 0; col < 11; col++) {
-				if (b[r][col].isEnabled()) {
-					b[r][col].addActionListener(this);
-					b[r][col].addMouseListener(this);
-				}
-			}
-		}
-
-	}*/
+	/*
+	 * public AgricolaController() { num_players = 0; fireplace_num = 2;
+	 * hearth_num = 2; well = true; clay_oven = true; stone_oven = true;
+	 * wood_converter = true; clay_converter = true; reed_converter = true;
+	 * extraFences = false; wFences2 = false;
+	 * 
+	 * players = new Player[5]; farm = new Space[5][7][11];
+	 * 
+	 * view = new FarmView();
+	 * 
+	 * // initializing variables and asking the user how many players are //
+	 * playing and of what type Object[] possibilities = { "Human",
+	 * "Computer - Normal", "Computer - Hard" }; String s = (String)
+	 * JOptionPane.showInputDialog(null, "Please Select Player 1", "Setup Game",
+	 * JOptionPane.PLAIN_MESSAGE, null, possibilities, "Human"); num_players++;
+	 * players[0] = new Player(); if (s.equals("Computer - Normal"))
+	 * players[0].setComputer(false); else if (s.equals("Computer - Hard"))
+	 * players[0].setComputer(true);
+	 * 
+	 * Object[] possibilities2 = { "Human", "Computer - Normal",
+	 * "Computer - Hard", "No More Players" };
+	 * 
+	 * s = (String) JOptionPane.showInputDialog(null, "Please Select Player 2",
+	 * "Setup Game", JOptionPane.PLAIN_MESSAGE, null, possibilities2, "Human");
+	 * if (!s.equals("No More Players")) { players[1] = new Player();
+	 * num_players++; if (s.equals("Computer - Normal"))
+	 * players[1].setComputer(false); else if (s.equals("Computer - Hard"))
+	 * players[1].setComputer(true);
+	 * 
+	 * s = (String) JOptionPane.showInputDialog(null, "Please Select Player 3",
+	 * "Setup Game", JOptionPane.PLAIN_MESSAGE, null, possibilities2, "Human");
+	 * if (!s.equals("No More Players")) { players[2] = new Player();
+	 * num_players++; if (s.equals("Computer - Normal"))
+	 * players[2].setComputer(false); else if (s.equals("Computer - Hard"))
+	 * players[2].setComputer(true);
+	 * 
+	 * s = (String) JOptionPane.showInputDialog(null, "Please Select Player 4",
+	 * "Setup Game", JOptionPane.PLAIN_MESSAGE, null, possibilities2, "Human");
+	 * if (!s.equals("No More Players")) { players[3] = new Player();
+	 * num_players++; if (s.equals("Computer - Normal"))
+	 * players[3].setComputer(false); else if (s.equals("Computer - Hard"))
+	 * players[3].setComputer(true);
+	 * 
+	 * s = (String) JOptionPane.showInputDialog(null, "Please Select Player 5",
+	 * "Setup Game", JOptionPane.PLAIN_MESSAGE, null, possibilities2, "Human");
+	 * if (!s.equals("No More Players")) { players[4] = new Player();
+	 * num_players++; if (s.equals("Computer - Normal"))
+	 * players[4].setComputer(false); else if (s.equals("Computer - Hard"))
+	 * players[4].setComputer(true);
+	 * 
+	 * } } } }
+	 * 
+	 * view.setPlayerMenu(num_players);
+	 * 
+	 * for (int r = 0; r < 7; r++) { for (int col = 0; col < 11; col++) {
+	 * farm[0][r][col] = new Space(); if (r % 2 == 1 && col % 2 == 1) {
+	 * farm[0][r][col].setSquare(); if ((col == 1 && r == 3) || (col == 1 && r
+	 * == 5)) farm[0][r][col].setType('w'); } if (r % 2 == 0 && col % 2 == 0)
+	 * farm[0][r][col].setValid();
+	 * 
+	 * }
+	 * 
+	 * }
+	 * 
+	 * mplayer1 = view.getPlayer1(); mplayer1.addActionListener(this);
+	 * 
+	 * // initializing farms
+	 * 
+	 * if (num_players > 1) { mplayer2 = view.getPlayer2();
+	 * mplayer2.addActionListener(this);
+	 * 
+	 * for (int r = 0; r < 7; r++) { for (int col = 0; col < 11; col++) {
+	 * farm[1][r][col] = new Space(); if (r % 2 == 1 && col % 2 == 1) {
+	 * farm[1][r][col].setSquare(); if ((col == 1 && r == 3) || (col == 1 && r
+	 * == 5)) farm[1][r][col].setType('w'); } if (r % 2 == 0 && col % 2 == 0)
+	 * farm[1][r][col].setValid();
+	 * 
+	 * }
+	 * 
+	 * }
+	 * 
+	 * } if (num_players > 2) { mplayer3 = view.getPlayer3();
+	 * mplayer3.addActionListener(this);
+	 * 
+	 * for (int r = 0; r < 7; r++) { for (int col = 0; col < 11; col++) {
+	 * farm[2][r][col] = new Space(); if (r % 2 == 1 && col % 2 == 1) {
+	 * farm[2][r][col].setSquare(); if ((col == 1 && r == 3) || (col == 1 && r
+	 * == 5)) farm[2][r][col].setType('w'); } if (r % 2 == 0 && col % 2 == 0)
+	 * farm[2][r][col].setValid();
+	 * 
+	 * }
+	 * 
+	 * }
+	 * 
+	 * } if (num_players > 3) { mplayer4 = view.getPlayer4();
+	 * mplayer4.addActionListener(this);
+	 * 
+	 * for (int r = 0; r < 7; r++) { for (int col = 0; col < 11; col++) {
+	 * farm[3][r][col] = new Space(); if (r % 2 == 1 && col % 2 == 1) {
+	 * farm[3][r][col].setSquare(); if ((col == 1 && r == 3) || (col == 1 && r
+	 * == 5)) farm[3][r][col].setType('w'); } if (r % 2 == 0 && col % 2 == 0)
+	 * farm[3][r][col].setValid();
+	 * 
+	 * }
+	 * 
+	 * }
+	 * 
+	 * } if (num_players > 4) { mplayer5 = view.getPlayer5();
+	 * mplayer5.addActionListener(this); for (int r = 0; r < 7; r++) { for (int
+	 * col = 0; col < 11; col++) { farm[4][r][col] = new Space(); if (r % 2 == 1
+	 * && col % 2 == 1) { farm[4][r][col].setSquare(); if ((col == 1 && r == 3)
+	 * || (col == 1 && r == 5)) farm[4][r][col].setType('w'); } if (r % 2 == 0
+	 * && col % 2 == 0) farm[4][r][col].setValid();
+	 * 
+	 * }
+	 * 
+	 * }
+	 * 
+	 * }
+	 * 
+	 * cur_player = 0; start_player = 0; view_player = 0; b = view.getButtons();
+	 * game = 1; if (num_players == 1) { wood = 2;
+	 * view.getGameTexts()[1].setText(Integer.toString(wood));
+	 * 
+	 * } else wood = 3; clay = 1; reed = 1; food = 1; sheep = 1; stone = 1;
+	 * stone2 = 1; boar = 1; cattle = 1; turn = 1; // start variables for the
+	 * game values, the wood space either gives 2 or // 3 depending on if it is
+	 * a solo game
+	 * 
+	 * // extra button initializations for 3-5 player games if (num_players ==
+	 * 3) { clay_3p = 1; wood2_3p = 1;
+	 * 
+	 * view.get3Actions()[0].setVisible(true);
+	 * view.get3Actions()[1].setVisible(true);
+	 * view.get3Actions()[2].setVisible(true);
+	 * view.get3Actions()[3].setVisible(true);
+	 * 
+	 * b3_clay = view.get3Actions()[0]; b3_clay.addActionListener(this);
+	 * 
+	 * b3_2wood = view.get3Actions()[1]; b3_2wood.addActionListener(this);
+	 * 
+	 * b3_resource = view.get3Actions()[2]; b3_resource.addActionListener(this);
+	 * 
+	 * b3_resource2 = view.get3Actions()[3];
+	 * b3_resource2.addActionListener(this);
+	 * 
+	 * view.get3Texts()[0].setVisible(true);
+	 * view.get3Texts()[1].setVisible(true);
+	 * 
+	 * }
+	 * 
+	 * else if (num_players == 4) { wood_4p = 1; wood2_4p = 2; clay2_4p = 2;
+	 * food_4p = 1;
+	 * 
+	 * view.get4Actions()[0].setVisible(true);
+	 * view.get4Actions()[1].setVisible(true);
+	 * view.get4Actions()[2].setVisible(true);
+	 * view.get4Actions()[3].setVisible(true);
+	 * view.get4Actions()[4].setVisible(true);
+	 * view.get4Actions()[5].setVisible(true);
+	 * 
+	 * b4_wood = view.get4Actions()[0]; b4_wood.addActionListener(this);
+	 * 
+	 * b4_2clay = view.get4Actions()[1]; b4_2clay.addActionListener(this);
+	 * 
+	 * b4_2wood = view.get4Actions()[2]; b4_2wood.addActionListener(this);
+	 * 
+	 * b4_food = view.get4Actions()[3]; b4_food.addActionListener(this);
+	 * 
+	 * b4_resource = view.get4Actions()[4]; b4_resource.addActionListener(this);
+	 * 
+	 * b4_3resource = view.get4Actions()[5];
+	 * b4_3resource.addActionListener(this);
+	 * 
+	 * view.get4Texts()[0].setVisible(true);
+	 * view.get4Texts()[1].setVisible(true);
+	 * view.get4Texts()[2].setVisible(true);
+	 * view.get4Texts()[3].setVisible(true); } else if (num_players == 5) {
+	 * wood4_5p = 4; clay3_5p = 3; food_5p = 1; reed_5p = 1;
+	 * 
+	 * view.get5Actions()[0].setVisible(true);
+	 * view.get5Actions()[1].setVisible(true);
+	 * view.get5Actions()[2].setVisible(true);
+	 * view.get5Actions()[3].setVisible(true);
+	 * view.get5Actions()[4].setVisible(true);
+	 * view.get5Actions()[5].setVisible(true);
+	 * 
+	 * b5_4wood = view.get5Actions()[0]; b5_4wood.addActionListener(this);
+	 * 
+	 * b5_3clay = view.get5Actions()[1]; b5_3clay.addActionListener(this);
+	 * 
+	 * b5_roomfood = view.get5Actions()[2]; b5_roomfood.addActionListener(this);
+	 * 
+	 * b5_reed = view.get5Actions()[3]; b5_reed.addActionListener(this);
+	 * 
+	 * b5_animals = view.get5Actions()[4]; b5_animals.addActionListener(this);
+	 * 
+	 * b5_resource = view.get5Actions()[5]; b5_resource.addActionListener(this);
+	 * 
+	 * view.get5Texts()[0].setVisible(true);
+	 * view.get5Texts()[1].setVisible(true);
+	 * view.get5Texts()[2].setVisible(true);
+	 * view.get5Texts()[3].setVisible(true);
+	 * 
+	 * }
+	 * 
+	 * // all button initilizations b_room = view.getActions()[0];
+	 * b_room.addActionListener(this);
+	 * 
+	 * b_start = view.getActions()[1]; b_start.addActionListener(this);
+	 * 
+	 * b_grain = view.getActions()[2]; b_grain.addActionListener(this);
+	 * 
+	 * b_field = view.getActions()[3]; b_field.addActionListener(this);
+	 * 
+	 * b_stable = view.getActions()[4]; b_stable.addActionListener(this);
+	 * 
+	 * b_day = view.getActions()[5]; b_day.addActionListener(this);
+	 * 
+	 * b_wood = view.getActions()[6]; b_wood.addActionListener(this);
+	 * 
+	 * b_clay = view.getActions()[7]; b_clay.addActionListener(this);
+	 * 
+	 * b_reed = view.getActions()[8]; b_reed.addActionListener(this);
+	 * 
+	 * b_food = view.getActions()[9]; b_food.addActionListener(this);
+	 * 
+	 * b_sheep = view.getActions()[10]; b_sheep.addActionListener(this);
+	 * 
+	 * b_sow = view.getActions()[11]; b_sow.setVisible(false);
+	 * b_sow.addActionListener(this);
+	 * 
+	 * b_fences = view.getActions()[12]; b_fences.setVisible(false);
+	 * b_fences.addActionListener(this);
+	 * 
+	 * b_improve = view.getActions()[13]; b_improve.setVisible(false);
+	 * b_improve.addActionListener(this);
+	 * 
+	 * b_stone = view.getActions()[14]; b_stone.setVisible(false);
+	 * b_stone.addActionListener(this);
+	 * 
+	 * b_growth = view.getActions()[15]; b_growth.setVisible(false);
+	 * b_growth.addActionListener(this);
+	 * 
+	 * b_renov = view.getActions()[16]; b_renov.setVisible(false);
+	 * b_renov.addActionListener(this);
+	 * 
+	 * b_boar = view.getActions()[17]; b_boar.setVisible(false);
+	 * b_boar.addActionListener(this);
+	 * 
+	 * b_vege = view.getActions()[18]; b_vege.setVisible(false);
+	 * b_vege.addActionListener(this);
+	 * 
+	 * b_cattle = view.getActions()[19]; b_cattle.setVisible(false);
+	 * b_cattle.addActionListener(this);
+	 * 
+	 * b_stone2 = view.getActions()[20]; b_stone2.setVisible(false);
+	 * b_stone2.addActionListener(this);
+	 * 
+	 * b_growth2 = view.getActions()[21]; b_growth2.setVisible(false);
+	 * b_growth2.addActionListener(this);
+	 * 
+	 * b_fieldsow = view.getActions()[22]; b_fieldsow.setVisible(false);
+	 * b_fieldsow.addActionListener(this);
+	 * 
+	 * b_renov2 = view.getActions()[23]; b_renov2.setVisible(false);
+	 * b_renov2.addActionListener(this);
+	 * 
+	 * b_finish = view.getActions()[24]; b_finish.addActionListener(this);
+	 * b_finish.setVisible(false);
+	 * 
+	 * view.setVisible(true); view.setDefaultCloseOperation(EXIT_ON_CLOSE); //
+	 * farm buttons for (int r = 0; r < 7; r++) { for (int col = 0; col < 11;
+	 * col++) { if (b[r][col].isEnabled()) { b[r][col].addActionListener(this);
+	 * b[r][col].addMouseListener(this); } } }
+	 * 
+	 * }
+	 */
 
 	public void mouseEntered(MouseEvent e) {
 	}
@@ -827,7 +691,7 @@ public class AgricolaController extends JFrame implements MouseListener,
 		// fences were the most complicated of actions because it requires
 		// multiple successive clicks and the game knowing if a fence encloses
 		// an area or not
-		
+
 		if (e.getSource() instanceof JButton) {
 			if (wFences || wFences2) {
 				if (e.getActionCommand().equals("Finish Action")
@@ -1232,7 +1096,7 @@ public class AgricolaController extends JFrame implements MouseListener,
 				displaySpaceTypes();
 				return;
 			}
-			
+
 			// first button press selection, since this requires the player to
 			// click on a farm place the action is not done here but later on
 			// when the w variables read as true
@@ -4348,10 +4212,10 @@ public class AgricolaController extends JFrame implements MouseListener,
 				computerTurn();
 
 		}
-		
-		//Update Button tooltips
+
+		// Update Button tooltips
 		displaySpaceTypes();
-		
+
 	}
 
 	// **************************
@@ -6456,13 +6320,16 @@ public class AgricolaController extends JFrame implements MouseListener,
 
 	public void displaySpaceTypes() {
 		StringBuilder everything = new StringBuilder();
-		/*Object opts[] = { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0-",
-				          "10", "01", "02", "00", "00", "00", "00", "00", "00", "00", "0-",
-				          "20", "01", "02", "00", "00", "00", "00", "00", "00", "00", "0-",
-				          "30", "01", "02", "00", "00", "00", "00", "00", "00", "00", "0-",
-				          "40", "01", "02", "00", "00", "00", "00", "00", "00", "00", "0-",
-				          "50", "01", "02", "00", "00", "00", "00", "00", "00", "00", "0-",
-				          "60", "01", "02", "00", "00", "00", "00", "00", "00", "00", "0-" };*/
+		/*
+		 * Object opts[] = { "00", "01", "02", "03", "04", "05", "06", "07",
+		 * "08", "09", "0-", "10", "01", "02", "00", "00", "00", "00", "00",
+		 * "00", "00", "0-", "20", "01", "02", "00", "00", "00", "00", "00",
+		 * "00", "00", "0-", "30", "01", "02", "00", "00", "00", "00", "00",
+		 * "00", "00", "0-", "40", "01", "02", "00", "00", "00", "00", "00",
+		 * "00", "00", "0-", "50", "01", "02", "00", "00", "00", "00", "00",
+		 * "00", "00", "0-", "60", "01", "02", "00", "00", "00", "00", "00",
+		 * "00", "00", "0-" };
+		 */
 
 		for (int r = 0; r < 7; r++) {
 			for (int col = 0; col < 11; col++) {
@@ -6470,9 +6337,11 @@ public class AgricolaController extends JFrame implements MouseListener,
 			}
 		}
 		view.getSpaceTypes.setText(everything.toString());
-		/*JOptionPane.showOptionDialog(null,
-				everything.toString(), "spaceTypes", 
-				JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, opts, opts[0]);*/
+		/*
+		 * JOptionPane.showOptionDialog(null, everything.toString(),
+		 * "spaceTypes", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,
+		 * null, opts, opts[0]);
+		 */
 	}
-	
+
 }

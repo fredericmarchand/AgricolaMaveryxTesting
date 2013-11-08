@@ -10,19 +10,19 @@ import org.maveryx.bootstrap.Bootstrap;
 import org.maveryx.core.guiApi.*;
 
 @RunWith(org.maveryx.test.junit.MaveryxTestRunner.class)
-public class AgricolaTest {
+public class AgricolaMultiplayer {
 
 	/**
 	 * Change this path to your current application's XML launch file.
 	 */
-	private static final String pathName = "C:\\Maveryx\\Agricola\\Agricola.xml";
+	private static final String pathName = "C:\\Maveryx\\Agricola\\Multiplayer\\Agricola.xml";
 
 	/**
 	 * Default constructor.
 	 * 
 	 * @throws Exception
 	 */
-	public AgricolaTest() throws Exception {
+	public AgricolaMultiplayer() throws Exception {
 		super();
 	}
 
@@ -97,20 +97,13 @@ public class AgricolaTest {
 		System.out.println(txt.getText());
 	}*/
 
-	/**
-	 * Test 1
-	 * 
-	 * @throws Exception
-	 */
 	@Test
-	public void test001() {
+	public void Req001() {
 		startApp(pathName);
-		@SuppressWarnings("unused")
 		GuiFrame f = new GuiFrame("Agricola");
-		GuiText foodBox = new GuiText("playerFood");
-		GuiButton btn = new GuiButton("TakeFood");
+		GuiButton btn = new GuiButton("Take3Wood", f);
 		btn.click();
-		assertEquals("1", "0");
+		
 	}
 
 }
